@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="myName"
+            type="com.example.aboutme.MyName" />
+
+    </data>
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,11 +22,12 @@
     <TextView
         android:id="@+id/name_text"
         style="@style/NameStyle"
-        android:text="@string/name"
+        android:layout_height="wrap_content"
+        android:text="@{myName.name}"
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/nickname_text"
+        android:id="@+id/nickname_edittext"
         style="@style/NameStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,6 +35,27 @@
         android:inputType="textPersonName"
         android:textAlignment="center" />
 
+
+    <Button
+        android:id="@+id/done_btn"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/layout_marginTop"
+        android:fontFamily="@font/roboto"
+        android:text="@string/done" />
+
+
+
+    <TextView
+        android:id="@+id/nickname_textview"
+        style="@style/NameStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:text="@{myName.nickname}"/>
 
     <ImageView
         android:id="@+id/star_image"
@@ -43,11 +75,13 @@
             style="@style/NameStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
             android:lineSpacingMultiplier="1.2"
-            android:text="@string/bio"
-            android:justificationMode="inter_word"/>
+            android:text="@string/bio" />
 
     </ScrollView>
 
 
 </LinearLayout>
+
+    </layout>
